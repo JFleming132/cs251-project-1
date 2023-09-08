@@ -12,17 +12,14 @@ public class EliminateK {
                current = current.next;
            }
            current.next = head;
-           i = 1;
-           int prev_val = 0;
-           while (prev_val != current.val) {
-               if (i % k == 0) { //every kth element
-                   current.next = current.next.next; //remove next in list (iteration starts at tail and loops)
+
+           while (current.next != current) {
+               for (i = 1; i < k; i++) {
+                   current = current.next;
                }
-               i++; //increment index
-               prev_val = current.val; //bookmark previous value
-               current = current.next; //advance list worker
+               current.next = current.next.next;
            }
-           return prev_val;
+           return current.val;
        }
        else {
            return 0;
