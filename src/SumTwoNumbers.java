@@ -88,6 +88,13 @@ public class SumTwoNumbers {
             returnList.previous.next = returnList;
             returnList = returnList.previous;
         }
+        Node unlinker = returnList;
+        while(unlinker != null) {
+            if (unlinker.previous != null) {
+                unlinker.previous = null;
+            }
+            unlinker = unlinker.next;
+        }
         return returnList;
     }
 }
