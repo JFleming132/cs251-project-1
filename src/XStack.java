@@ -24,7 +24,12 @@ public class XStack {
     }
     public int peek()
     {
-        return -1;
+        if (top == null) {
+            return -1;
+        }
+        else {
+            return top.value;
+        }
     }
 
 }
